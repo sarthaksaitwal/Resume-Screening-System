@@ -32,6 +32,11 @@ class TrainPipeline:
 
             vectorizer_path=os.path.join("artifacts","tfidf_vectorizer.pkl")
             resume_vectors_path=os.path.join("artifacts","resume_vectors.pkl")
+            resumes_path = os.path.join("artifacts", "resumes.pkl")
+
+            with open(resumes_path, "wb") as f:
+                dill.dump(resumes, f)
+
 
             with open(vectorizer_path, "wb") as f:
                 dill.dump(similarity_engine.vectorizer, f)
