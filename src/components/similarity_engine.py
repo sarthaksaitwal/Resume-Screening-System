@@ -72,17 +72,17 @@ class SimilarityEngine:
         except Exception as e:
             raise CustomException(e,sys)
 
-if __name__ == "__main__":
-    resumes = [
-        "machine learning engineer python sklearn flask",
-        "frontend developer html css javascript",
-        "data scientist python pandas numpy"
-    ]
+# if __name__ == "__main__":
+#     resumes = [
+#         "machine learning engineer python sklearn flask",
+#         "frontend developer html css javascript",
+#         "data scientist python pandas numpy"
+#     ]
 
-    jd = "looking for a machine learning engineer with python experience"
+#     jd = "looking for a machine learning engineer with python experience"
 
-    engine = SimilarityEngine()
-    engine.fit(resumes)
+#     engine = SimilarityEngine()
+#     engine.fit(resumes)
 
-    results = engine.rank_resumes(jd, top_k=3)
-    print(results)
+#     results = engine.rank_resumes(jd, top_k=3)
+#     print(results)
