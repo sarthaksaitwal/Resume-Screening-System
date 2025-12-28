@@ -9,25 +9,41 @@
 <div class="container">
     <h2>Resume Screening System</h2>
 
-    <form method="POST">
-        <label>Paste Job Description</label>
-        <textarea name="job_description" rows="8" required></textarea>
+        <form method="POST">
+            <label>Paste Job Description</label>
+            <textarea name="job_description" rows="8" required></textarea>
 
-        <button type="submit">Screen Resumes</button>
-    </form>
+            <label>Select Matching Model</label>
+            <select name="model_type">
+                <option value="tfidf"
+                    {% if selected_model == "tfidf" %}selected{% endif %}>
+                    TF-IDF (Baseline)
+                </option>
+                <option value="transformer"
+                    {% if selected_model == "transformer" %}selected{% endif %}>
+                    Transformer (Semantic)
+                </option>
+            </select>
+            <button type="submit">Screen Resumes</button>
+        </form>
 
     {% if results %}
-        <h3>Top Matching Resumes</h3>
+  <h3>Top Matching Resumes</h3>
 
-        {% for res in results %}
-            <div class="result-card">
-                <p><strong>Resume Index:</strong> {{ res.resume_index }}</p>
-                <p><strong>Match Score:</strong> {{ res.similarity_score }}%</p>
-                <p><strong>Resume Preview:</strong></p>
-                <p class="snippet">{{ res.resume_snippet }}</p>
-            </div>
-        {% endfor %}
-    {% endif %}
+  {% for res in results %}
+    <div class="result-card">
+        <p><strong>Match Score:</strong> {{ res.similarity_score }}%</p>
+
+        <p>
+          <a href="{{ url_for('view_resume', resume_id=res.resume_index) }}"
+             target="_blank">
+             🔗 View Resume
+          </a>
+        </p>
+    </div>
+  {% endfor %}
+{% endif %}
+
 </div>
 
 </body>
