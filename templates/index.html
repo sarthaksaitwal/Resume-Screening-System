@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume Screening System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h2>Resume Screening System</h2>
+
+    <form method="POST">
+        <label>Paste Job Description</label>
+        <textarea name="job_description" rows="8" required></textarea>
+
+        <button type="submit">Screen Resumes</button>
+    </form>
+
+    {% if results %}
+        <h3>Top Matching Resumes</h3>
+
+        {% for res in results %}
+            <div class="result-card">
+                <p><strong>Resume Index:</strong> {{ res.resume_index }}</p>
+                <p><strong>Match Score:</strong> {{ res.similarity_score }}%</p>
+                <p><strong>Resume Preview:</strong></p>
+                <p class="snippet">{{ res.resume_snippet }}</p>
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+
+</body>
+</html>

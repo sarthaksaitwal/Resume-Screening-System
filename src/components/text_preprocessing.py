@@ -9,9 +9,9 @@ import pandas as pd
 from src.logger import logging
 from src.exception import CustomException
 
-nltk.download('stopwords')
-nltk.download('wordnet')
-nltk.download('omw-1.4')
+# nltk.download('stopwords')
+# nltk.download('wordnet')
+# nltk.download('omw-1.4')
 
 class TextPreprocessor:
     def __init__(self):
