@@ -35,7 +35,7 @@ class DataIngestion:
         except Exception as e:
             raise CustomException(e,sys)
 
-if __name__ == "__main__":
-    ingestion = DataIngestion()
-    resumes = ingestion.load_resume_data()
-    # print(resumes[0][:500])
+# if __name__ == "__main__":
+#     ingestion = DataIngestion()
+#     resumes = ingestion.load_resume_data()
+#     print(resumes[0][:500])
