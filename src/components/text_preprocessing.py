@@ -48,7 +48,17 @@ class TextPreprocessor:
 
             cleaned_text =" ".join(cleaned_tokens)
 
+            logging.info("Text preprocessing successful")
+
             return cleaned_text
 
         except Exception as e:
             raise CustomException(e,sys)
+
+if __name__ == "__main__":
+    text = """
+    Email: example@gmail.com
+    Experienced Machine Learning Engineer with Python, NLP, and Flask.
+    """
+    processor = TextPreprocessor()
+    print(processor.clean_text(text))
